@@ -9,13 +9,17 @@ Requisitos: Tener instalado gRPC en las máquinas virtuales, tener instalado pyt
 ¿Cómo ejecutar?
 
 Primero poner a correr los microservicios de manera individual, estando en la carpeta raíz del proyecto ejecutar:
+
   Para microservicio de suma: python -m microservices.sum_service.server
+  
   Para microservicio de resta: python -m microservices.subtract_service.server
+  
   Para microservicio de multiplicación: python -m microservices.multiply_service.server
   
 Luego de ejecutarlos debería retornarse que el microservicio está corriendo y el puerto correspondiente
 
 Luego ejecutar el API gateway, estando en la carpeta raíz del proyecto, ejecutar:
+  
   uvicorn api_gateway.main:app --host 0.0.0.0 --port 8000 --reload
 
 Si es exitoso se va a dar el log del estado, así como los GET que haga el usuario
