@@ -5,6 +5,8 @@ from microservices import calculator_pb2_grpc
 from .redis_mom import send_to_queue
 from fastapi import FastAPI
 import grpc
+import redis
+import json
 
 app = FastAPI()
 
@@ -50,3 +52,17 @@ def multiply_numbers(num1: float, num2: float):
     except grpc.RpcError:
         send_to_queue("multiply", {"num1": num1, "num2": num2})
         return {"message": "Servicio de multiplicación no disponible, operación encolada."}
+
+
+@app.get("/pending_results")
+def get_pending_results():
+    r = redis.Redis(host='localhost', port=6379, db=0)
+    results = []
+
+    while True:
+        item = r.lpop("processed_results")
+        if item is None:
+            break
+        results.append(json.loads(item))
+
+    return {"results": results}

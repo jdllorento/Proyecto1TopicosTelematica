@@ -29,6 +29,16 @@ def process_pending_tasks():
             result = nums["num1"] * nums["num2"]
             print(
                 f"Procesando tarea pendiente de multiplicación: {nums['num1']} * {nums['num2']} = {result}")
+
+            processed = {
+                "operation": "Multiplication",
+                "num1": nums["num1"],
+                "num2": nums["num2"],
+                "result": result
+            }
+
+            r.rpush("processed_results", json.dumps(processed))
+
         else:
             r.rpush("task_queue", task)
 
