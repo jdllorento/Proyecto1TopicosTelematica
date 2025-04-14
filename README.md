@@ -1,4 +1,4 @@
-Bienvenido al proyecto 1 de Tópicos de Telemática del periodo 2025-1
+# Bienvenido al proyecto 1 de Tópicos de Telemática del periodo 2025-1
 
 Este es un sistema de arquitectura distribuida, en la cual un cliente tiene la capacidad de hacer solicitudes para operaciones matemáticas a través de microservicios, a los cuales se accede con la redirección de un API gateway, así como soportar la comunicación entre microservicios y un sistema de failover donde se guardan los mensajes cuando un microservicio no está disponible para luego recuperarlos
 
@@ -29,3 +29,7 @@ Para ejecutar las solicitudes:
 Estando en la carpeta raíz, usar el comando curl para especificar el servicio y los operandos (etapa de desarrollo):
 
 curl http://localhost:8000/multiply/6/7  // Ejemplo para multiplicación de 6 y 7
+
+curl http://localhost:8000/add/6/7  // Ejemplo para suma de 6 y 7
+
+curl http://localhost:8000/subtract/6/7 // Ejemplo para resta de 6 y 7
