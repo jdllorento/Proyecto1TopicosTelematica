@@ -15,8 +15,8 @@ Este es un sistema de arquitectura distribuida, en la cual un cliente tiene la c
    * redis
  * Git y este repositorio clonado
  * Redis (solo para una VM, asegurarse que se ejecute en el puerto 6379 y reciba tráfico de todas las IPs)
- * FastAPI
  * Grupo de seguridad que permita el tráfico por los puertos correspondientes
+ * Todas las máquinas en una VPC (AWS lo hace por defecto)
 
 ### ¿Cómo ejecutar?
 
