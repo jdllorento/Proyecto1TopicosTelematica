@@ -11,13 +11,13 @@ import json
 app = FastAPI()
 
 # Crear conexiones gRPC con los microservicios
-sum_channel = grpc.insecure_channel("localhost:50051")
+sum_channel = grpc.insecure_channel("172.31.91.210:50051")
 sum_stub = calculator_pb2_grpc.CalculatorStub(sum_channel)
 
-sub_channel = grpc.insecure_channel("localhost:50052")
+sub_channel = grpc.insecure_channel("172.31.85.65:50052")
 sub_stub = calculator_pb2_grpc.CalculatorStub(sub_channel)
 
-mul_channel = grpc.insecure_channel("localhost:50053")
+mul_channel = grpc.insecure_channel("172.31.81.32:50053")
 mul_stub = calculator_pb2_grpc.CalculatorStub(mul_channel)
 
 
@@ -56,7 +56,7 @@ def multiply_numbers(num1: float, num2: float):
 
 @app.get("/pending_results")
 def get_pending_results():
-    r = redis.Redis(host='localhost', port=6379, db=0)
+    r = redis.Redis(host='172.31.82.94', port=6379, db=0)
     results = []
 
     while True:

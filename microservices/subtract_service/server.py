@@ -16,7 +16,7 @@ class SubtractService(calculator_pb2_grpc.CalculatorServicer):
 
 def process_pending_tasks():
     print("Buscando tareas pendientes en Redis para resta...")
-    r = redis.Redis(host='localhost', port=6379, db=0)
+    r = redis.Redis(host='172.31.82.94', port=6379, db=0)
 
     while True:
         task = r.lpop("task_queue")
