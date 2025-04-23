@@ -23,17 +23,17 @@ Este es un sistema de arquitectura distribuida, en la cual un cliente tiene la c
 ### Primero, ejecutar Redis en la VM correspondiente, a través del siguiente comando (para esto ya debe estar instalado y enabled):
 
 ```console
-  sudo systemctl start redis-server
+sudo systemctl start redis-server
 ```
 
 ### Luego, poner a correr los microservicios de manera individual, estando en la carpeta raíz del proyecto ejecutar:
 
 ```console
-  python -m microservices.sum_service.server
+python -m microservices.sum_service.server
   
-  python -m microservices.subtract_service.server
+python -m microservices.subtract_service.server
   
-  python -m microservices.multiply_service.server
+python -m microservices.multiply_service.server
 ```
 
 Luego de ejecutarlos debería retornarse que el microservicio está corriendo y el puerto correspondiente
@@ -51,11 +51,11 @@ Si es exitoso se va a dar el log del estado, así como los GET que haga el usuar
 Desde cualquier navegador, o usando postman, usar la URL con la IP pública del gateway (para el ejemplo: 35.175.138.10) para especificar el servicio y los operandos:
 
 ```console
-  http://35.175.138.10:8000/multiply/6/7  // Ejemplo para multiplicación de 6 y 7
+http://35.175.138.10:8000/multiply/6/7  // Ejemplo para multiplicación de 6 y 7
 
-  http://35.175.138.10:8000/add/6/7  // Ejemplo para suma de 6 y 7
+http://35.175.138.10:8000/add/6/7  // Ejemplo para suma de 6 y 7
 
-  http://35.175.138.10:8000/subtract/6/7 // Ejemplo para resta de 6 y 7
+http://35.175.138.10:8000/subtract/6/7 // Ejemplo para resta de 6 y 7
 ```
 
 ### Para recuperar los resultados:
